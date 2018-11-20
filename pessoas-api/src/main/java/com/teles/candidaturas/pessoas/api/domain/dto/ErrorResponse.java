@@ -9,12 +9,12 @@ import org.springframework.validation.FieldError;
 public class ErrorResponse {
 
     private final String field;
+
     private final String message;
 
     public static ErrorResponse newErrorResponse(FieldError fieldError) {
 
-        return new ErrorResponse(fieldError.getField(),
-                                    fieldError.getDefaultMessage());
+        return new ErrorResponse(fieldError.getField(), fieldError.getDefaultMessage());
     }
 
 }

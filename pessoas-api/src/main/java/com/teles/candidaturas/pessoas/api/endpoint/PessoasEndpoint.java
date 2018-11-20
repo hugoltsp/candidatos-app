@@ -24,7 +24,7 @@ public class PessoasEndpoint {
 
         return pessoaService.findById(id)
                 .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+                .orElse(ResponseEntity.noContent().build());
     }
 
     @PostMapping

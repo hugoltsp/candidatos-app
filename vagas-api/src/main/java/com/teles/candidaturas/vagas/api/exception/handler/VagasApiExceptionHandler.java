@@ -1,7 +1,6 @@
 package com.teles.candidaturas.vagas.api.exception.handler;
 
 import com.teles.candidaturas.vagas.api.domain.dto.ErrorResponse;
-import com.teles.candidaturas.vagas.api.exception.VagaNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -23,16 +22,6 @@ public class VagasApiExceptionHandler extends ResponseEntityExceptionHandler {
         log.error("Error.", e);
 
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-    }
-
-    @ExceptionHandler(VagaNotFoundException.class)
-    public ResponseEntity<?> vagaNotFoundException(VagaNotFoundException e) {
-        log.error("Unable to retrieve some data.", e);
-
-        ErrorResponse errorResponse = new ErrorResponse();
-        errorResponse.setMessage(e.getMessage());
-
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(errorResponse);
     }
 
     @Override

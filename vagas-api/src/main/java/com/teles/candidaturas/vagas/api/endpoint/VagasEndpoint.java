@@ -23,7 +23,9 @@ public class VagasEndpoint {
     @GetMapping("/{id}")
     public ResponseEntity<?> get(@PathVariable Long id) {
 
-        return ResponseEntity.ok(vagaService.findById(id));
+        return vagaService.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.noContent().build());
     }
 
     @PostMapping

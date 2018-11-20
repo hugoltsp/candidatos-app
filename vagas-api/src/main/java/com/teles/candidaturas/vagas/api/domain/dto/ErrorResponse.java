@@ -6,17 +6,13 @@ import org.springframework.validation.FieldError;
 @Data
 public class ErrorResponse {
 
-    private String field;
-    private String message;
+    private final String field;
+    
+    private final String message;
 
-    public static ErrorResponse newErrorResponse(FieldError fieldError){
+    public static ErrorResponse newErrorResponse(FieldError fieldError) {
 
-        ErrorResponse errorResponse = new ErrorResponse();
-
-        errorResponse.setMessage(fieldError.getDefaultMessage());
-        errorResponse.setField(fieldError.getField());
-
-        return errorResponse;
+        return new ErrorResponse(fieldError.getField(), fieldError.getDefaultMessage());
     }
 
 }
