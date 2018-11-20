@@ -23,8 +23,9 @@
     </properties>
 
     <modules>
-        <module>vagas-api</module>
         <module>candidaturas-commons</module>
+        <module>vagas-api</module>
+        <module>pessoas-api</module>
     </modules>
 
     <dependencyManagement>
