@@ -1,12 +1,22 @@
 package com.teles.candidatos.vagas.api.domain.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.springframework.validation.FieldError;
 
 @Data
-@AllArgsConstructor
 public class ErrorResponse {
 
-    private final String message;
+    private String field;
+    private String message;
+
+    public static ErrorResponse newErrorResponse(FieldError fieldError){
+
+        ErrorResponse errorResponse = new ErrorResponse();
+
+        errorResponse.setMessage(fieldError.getDefaultMessage());
+        errorResponse.setField(fieldError.getField());
+
+        return errorResponse;
+    }
 
 }

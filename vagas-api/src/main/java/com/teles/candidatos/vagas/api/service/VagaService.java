@@ -37,7 +37,7 @@ public class VagaService {
     @Transactional
     public Vaga save(VagaRequest vagaRequest) {
 
-        log.info("Saving [{}]", vagaRequest);
+        log.info("Saving [{}].", vagaRequest);
 
         return vagaRepository.save(newVagaEntity(vagaRequest));
     }
