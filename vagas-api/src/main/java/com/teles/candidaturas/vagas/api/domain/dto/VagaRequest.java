@@ -1,4 +1,4 @@
-package com.teles.candidatos.vagas.api.domain.dto;
+package com.teles.candidaturas.vagas.api.domain.dto;
 
 import com.teles.candidaturas.commons.constants.Localizacao;
 import com.teles.candidaturas.commons.constants.Nivel;

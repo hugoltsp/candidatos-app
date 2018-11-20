@@ -1,7 +1,7 @@
-package com.teles.candidatos.vagas.api.endpoint;
+package com.teles.candidaturas.vagas.api.endpoint;
 
-import com.teles.candidatos.vagas.api.domain.dto.VagaRequest;
-import com.teles.candidatos.vagas.api.service.VagaService;
+import com.teles.candidaturas.vagas.api.domain.dto.VagaRequest;
+import com.teles.candidaturas.vagas.api.service.VagaService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,11 +27,11 @@ public class VagasEndpoint {
     }
 
     @PostMapping
-    public ResponseEntity<?> post(@Valid @RequestBody VagaRequest vagaRequest) {
+    public ResponseEntity<?> create(@Valid @RequestBody VagaRequest vagaRequest) {
 
         return ResponseEntity.ok(linkTo(methodOn(VagasEndpoint.class)
-                        .get(vagaService.save(vagaRequest).getId()))
-                        .withSelfRel());
+                .get(vagaService.save(vagaRequest).getId()))
+                .withSelfRel());
     }
 
 }

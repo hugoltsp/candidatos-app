@@ -1,4 +1,4 @@
-package com.teles.candidatos.vagas.api.exception;
+package com.teles.candidaturas.vagas.api.exception;
 
 public class VagaNotFoundException extends RuntimeException {
 

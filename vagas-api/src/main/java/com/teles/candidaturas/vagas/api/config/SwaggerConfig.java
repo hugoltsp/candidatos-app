@@ -1,4 +1,4 @@
-package com.teles.candidatos.vagas.api.config;
+package com.teles.candidaturas.vagas.api.config;
 
 
 import org.springframework.context.annotation.Bean;

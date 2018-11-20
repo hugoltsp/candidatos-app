@@ -1,7 +1,7 @@
-package com.teles.candidatos.vagas.api.exception.handler;
+package com.teles.candidaturas.vagas.api.exception.handler;
 
-import com.teles.candidatos.vagas.api.domain.dto.ErrorResponse;
-import com.teles.candidatos.vagas.api.exception.VagaNotFoundException;
+import com.teles.candidaturas.vagas.api.domain.dto.ErrorResponse;
+import com.teles.candidaturas.vagas.api.exception.VagaNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @RestControllerAdvice
-public class VagaApiExceptionHandler extends ResponseEntityExceptionHandler {
+public class VagasApiExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<?> exception(Exception e) {

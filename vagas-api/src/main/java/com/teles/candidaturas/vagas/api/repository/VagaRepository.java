@@ -1,6 +1,6 @@
-package com.teles.candidatos.vagas.api.repository;
+package com.teles.candidaturas.vagas.api.repository;
 
-import com.teles.candidatos.vagas.api.domain.entities.Vaga;
+import com.teles.candidaturas.vagas.api.domain.entity.Vaga;
 import org.springframework.data.repository.CrudRepository;
 
 public interface VagaRepository extends CrudRepository<Vaga, Long> {

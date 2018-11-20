@@ -1,4 +1,4 @@
-package com.teles.candidatos.vagas.api.domain.dto;
+package com.teles.candidaturas.vagas.api.domain.dto;
 
 import lombok.Data;
 import org.springframework.validation.FieldError;

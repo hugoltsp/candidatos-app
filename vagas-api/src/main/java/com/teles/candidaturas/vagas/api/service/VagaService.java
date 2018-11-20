@@ -1,10 +1,10 @@
-package com.teles.candidatos.vagas.api.service;
+package com.teles.candidaturas.vagas.api.service;
 
-import com.teles.candidatos.vagas.api.domain.dto.VagaRequest;
-import com.teles.candidatos.vagas.api.domain.dto.VagaResponse;
-import com.teles.candidatos.vagas.api.domain.entities.Vaga;
-import com.teles.candidatos.vagas.api.exception.VagaNotFoundException;
-import com.teles.candidatos.vagas.api.repository.VagaRepository;
+import com.teles.candidaturas.vagas.api.domain.dto.VagaRequest;
+import com.teles.candidaturas.vagas.api.domain.dto.VagaResponse;
+import com.teles.candidaturas.vagas.api.domain.entity.Vaga;
+import com.teles.candidaturas.vagas.api.exception.VagaNotFoundException;
+import com.teles.candidaturas.vagas.api.repository.VagaRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -17,19 +17,19 @@ public class VagaService {
 
     private final ModelMapper modelMapper;
 
-    private final VagaRepository vagaRepository;
+    private final VagaRepository repository;
 
-    public VagaService(ModelMapper modelMapper, VagaRepository vagaRepository) {
+    public VagaService(ModelMapper modelMapper, VagaRepository repository) {
 
         this.modelMapper = modelMapper;
-        this.vagaRepository = vagaRepository;
+        this.repository = repository;
     }
 
     @Transactional(propagation = Propagation.NOT_SUPPORTED)
     public VagaResponse findById(Long id) {
         log.info("Fetching data with id: [{}].", id);
 
-        return vagaRepository.findById(id)
+        return repository.findById(id)
                 .map(this::newVagaResponse)
                 .orElseThrow(() -> new VagaNotFoundException(String.format("Could not find an entity for the given id: [%s]", id)));
     }
@@ -39,10 +39,10 @@ public class VagaService {
 
         log.info("Saving [{}].", vagaRequest);
 
-        return vagaRepository.save(newVagaEntity(vagaRequest));
+        return repository.save(newVaga(vagaRequest));
     }
 
-    private Vaga newVagaEntity(VagaRequest vagaRequest) {
+    private Vaga newVaga(VagaRequest vagaRequest) {
 
         return modelMapper.map(vagaRequest, Vaga.class);
     }
