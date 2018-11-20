@@ -53,6 +53,6 @@ public class VagaApiExceptionHandler extends ResponseEntityExceptionHandler {
                                                              HttpStatus status,
                                                              WebRequest request) {
         log.error("Error", ex);
-        return super.handleExceptionInternal(ex, body, heade    rs, status, request);
+        return super.handleExceptionInternal(ex, body, headers, status, request);
     }
 }
