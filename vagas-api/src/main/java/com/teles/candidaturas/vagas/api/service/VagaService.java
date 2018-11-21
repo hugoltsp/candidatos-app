@@ -34,11 +34,11 @@ public class VagaService {
     }
 
     @Transactional
-    public Vaga save(VagaRequest vagaRequest) {
+    public void save(VagaRequest vagaRequest) {
 
         log.info("Saving [{}].", vagaRequest);
 
-        return repository.save(newVaga(vagaRequest));
+        repository.save(newVaga(vagaRequest));
     }
 
     private Vaga newVaga(VagaRequest vagaRequest) {

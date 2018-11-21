@@ -7,9 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
-import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
-
 @RestController
 @RequestMapping("/vagas")
 public class VagasEndpoint {
@@ -31,9 +28,8 @@ public class VagasEndpoint {
     @PostMapping
     public ResponseEntity<?> create(@Valid @RequestBody VagaRequest vagaRequest) {
 
-        return ResponseEntity.ok(linkTo(methodOn(VagasEndpoint.class)
-                .get(vagaService.save(vagaRequest).getId()))
-                .withSelfRel());
+        vagaService.save(vagaRequest);
+        return ResponseEntity.ok().build();
     }
 
 }
