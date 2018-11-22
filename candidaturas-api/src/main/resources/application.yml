@@ -7,10 +7,8 @@ eureka:
 server:
   port: 9093
   servlet:
-    context-path: /v1
+    context-path: /candidaturas-api
 spring:
-  main:
-    allow-bean-definition-overriding: true
   application:
     name: candidaturas-api
   jackson:

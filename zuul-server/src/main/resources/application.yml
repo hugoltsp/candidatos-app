@@ -1,0 +1,27 @@
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:9090/eureka/
+    fetch-registry: true
+server:
+  port: 9000
+spring:
+  application:
+    name: zuul-server
+zuul:
+  prefix: /v1
+  routes:
+    vagas-api:
+      path: /vagas-api/**
+      serviceId: vagas-api
+      stripPrefix: false
+    pessoas-api:
+      path: /pessoas-api/**
+      serviceId: pessoas-api
+      stripPrefix: false
+    candidaturas-api:
+      path: /candidaturas-api/**
+      serviceId: candidaturas-api
+      stripPrefix: false

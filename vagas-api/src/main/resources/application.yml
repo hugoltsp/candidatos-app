@@ -9,8 +9,6 @@ server:
   servlet:
     context-path: /vagas-api
 spring:
-  main:
-    allow-bean-definition-overriding: true
   application:
     name: vagas-api
   jackson:
