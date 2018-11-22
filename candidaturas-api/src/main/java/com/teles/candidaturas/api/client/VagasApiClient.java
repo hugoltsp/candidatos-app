@@ -6,7 +6,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(value = "vagas-api", path = "/vagas-api")
+@FeignClient(value = "vagas-api")
 public interface VagasApiClient {
 
     @GetMapping("/vagas/{id}")

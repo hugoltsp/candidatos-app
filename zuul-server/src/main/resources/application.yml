@@ -13,15 +13,15 @@ spring:
 zuul:
   prefix: /v1
   routes:
-    vagas-api:
-      path: /vagas-api/**
+    vagas:
+      path: /vagas/**
       serviceId: vagas-api
       stripPrefix: false
-    pessoas-api:
-      path: /pessoas-api/**
+    pessoas:
+      path: /pessoas/**
       serviceId: pessoas-api
       stripPrefix: false
-    candidaturas-api:
-      path: /candidaturas-api/**
+    candidaturas:
+      path: /candidaturas/**
       serviceId: candidaturas-api
       stripPrefix: false
