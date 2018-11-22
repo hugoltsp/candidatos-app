@@ -1,7 +1,17 @@
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:9090/eureka/
 server:
   port: 9093
   servlet:
     context-path: /v1
 spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: candidaturas-api
   jackson:
     default-property-inclusion: NON_NULL

@@ -29,7 +29,7 @@ public class CandidaturasApiExceptionHandler extends ResponseEntityExceptionHand
                                                                   HttpStatus status, WebRequest request) {
 
         return ResponseEntity.badRequest().body(ex.getBindingResult()
-                .getFieldErrors()
+                .getAllErrors()
                 .stream()
                 .map(ErrorResponse::newErrorResponse)
                 .collect(Collectors.toList()));

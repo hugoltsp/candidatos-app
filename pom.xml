@@ -27,10 +27,18 @@
         <module>vagas-api</module>
         <module>pessoas-api</module>
         <module>candidaturas-api</module>
+        <module>eureka-server</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Finchley.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <dependency>
                 <groupId>com.teles.candidaturas</groupId>
                 <artifactId>candidaturas-commons</artifactId>

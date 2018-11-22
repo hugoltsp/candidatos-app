@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 import java.util.stream.Collectors;
 
@@ -42,10 +43,20 @@ public class CandidaturaService {
     @Transactional(propagation = Propagation.NOT_SUPPORTED)
     public List<CandidaturaResponse> findByVagaId(Long vagaId) {
 
+        log.info("Searching for Candidaturas by vagaId: [{}]", vagaId);
+
         return candidaturaRepository.findByVagaIdOrderByScoreDesc(vagaId)
                 .stream()
                 .map(this::mapToCandidaturaResponse)
                 .collect(Collectors.toList());
+    }
+
+    @Transactional(propagation = Propagation.NOT_SUPPORTED)
+    public Optional<Candidatura> findByVagaIdAndPessoaId(Long vagaId, Long pessoaId) {
+
+        log.info("Searching Candidatura by vagaId: [{}] and pessoaId: [{}]", vagaId, pessoaId);
+
+        return candidaturaRepository.findByVagaIdAndPessoaId(vagaId, pessoaId);
     }
 
     private Integer calculateScore(CandidaturaRequest candidatura) {

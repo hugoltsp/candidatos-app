@@ -1,7 +1,18 @@
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:9090/eureka/
+    fetch-registry: true
 server:
   port: 9092
   servlet:
-    context-path: /v1
+    context-path: /pessoas-api
 spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: pessoas-api
   jackson:
     default-property-inclusion: NON_NULL

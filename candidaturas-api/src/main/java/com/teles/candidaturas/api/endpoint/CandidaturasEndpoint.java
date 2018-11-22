@@ -3,7 +3,9 @@ package com.teles.candidaturas.api.endpoint;
 import com.teles.candidaturas.api.domain.dto.CandidaturaRequest;
 import com.teles.candidaturas.api.domain.dto.CandidaturaResponse;
 import com.teles.candidaturas.api.service.CandidaturaService;
+import com.teles.candidaturas.api.validator.annotation.groups.OrderedValidation;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -21,7 +23,8 @@ public class CandidaturasEndpoint {
     }
 
     @PostMapping
-    public ResponseEntity<?> create(@Valid @RequestBody CandidaturaRequest candidaturaRequest) {
+    public ResponseEntity<?> create(@Validated(value = OrderedValidation.class)
+                                        @RequestBody CandidaturaRequest candidaturaRequest) {
 
         candidaturaService.save(candidaturaRequest);
 
