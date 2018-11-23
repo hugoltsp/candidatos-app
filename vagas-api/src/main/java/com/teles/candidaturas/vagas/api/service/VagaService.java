@@ -52,7 +52,7 @@ public class VagaService {
 
         List<CandidaturaVagaResponse> responses = new ArrayList<>();
 
-        List<CandidaturasApiClient.CandidaturaResponse> candidaturaResponses = candidaturasApiClient.findByVagaId(vagaId);
+        List<CandidaturasApiClient.CandidaturaResponse> candidaturaResponses = getCandidaturasByVagaId(vagaId);
 
         if (!CollectionUtils.isEmpty(candidaturaResponses)) {
             candidaturaResponses.stream()
