@@ -1,4 +1,4 @@
-package com.teles.candidaturas.api.client;
+package com.teles.candidaturas.vagas.api.client;
 
 import com.teles.candidaturas.commons.constants.Localizacao;
 import lombok.Data;
@@ -26,5 +26,4 @@ public interface PessoasApiClient {
         private Integer nivel;
 
     }
-
 }
