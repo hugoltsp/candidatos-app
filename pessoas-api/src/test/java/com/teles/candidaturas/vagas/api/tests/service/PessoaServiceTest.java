@@ -1,4 +1,4 @@
-package com.teles.candidaturas.pessoas.api.tests.service;
+package com.teles.candidaturas.vagas.api.tests.service;
 
 import com.teles.candidaturas.pessoas.api.domain.dto.PessoaResponse;
 import com.teles.candidaturas.pessoas.api.domain.entity.Pessoa;
