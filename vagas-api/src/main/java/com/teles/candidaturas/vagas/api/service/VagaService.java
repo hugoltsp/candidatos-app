@@ -83,7 +83,6 @@ public class VagaService {
         return modelMapper.map(vaga, VagaResponse.class);
     }
 
-
     private Optional<CandidaturaVagaResponse> mapToCandidaturaVagaResponse(CandidaturasApiClient.CandidaturaResponse candidatura) {
 
         return getPessoaById(candidatura.getPessoaId()).map(pessoaResponse -> {
