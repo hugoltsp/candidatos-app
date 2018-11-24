@@ -1,0 +1,66 @@
+version: '3.6'
+services:
+  zuul-server:
+    build:
+      zuul-server/
+    image:
+      zuul-server:latest
+    ports:
+      - 9000:9000
+    depends_on:
+      - eureka-server
+      - candidaturas-api
+      - vagas-api
+      - pessoas-api
+    environment:
+      - EUREKA_INSTANCE_HOSTNAME=zuul-server
+      - CLIENT_SERVICE-URL_DEFAULTZONE=http://eureka-server:9090/eureka/
+    networks:
+      - candidaturas-app
+  eureka-server:
+    build:
+      eureka-server/
+    image:
+      eureka-server:latest
+    ports:
+      - 9090:9090
+    networks:
+      - candidaturas-app
+  candidaturas-api:
+    build:
+      candidaturas-api/
+    image:
+      candidaturas-api:latest
+    ports:
+      - 9093:9093
+    environment:
+      - EUREKA_INSTANCE_HOSTNAME=candidaturas-api
+      - CLIENT_SERVICE-URL_DEFAULTZONE=http://eureka-server:9090/eureka/
+    networks:
+      - candidaturas-app
+  pessoas-api:
+    build:
+      pessoas-api/
+    image:
+      pessoas-api:latest
+    ports:
+      - 9092:9092
+    environment:
+      - EUREKA_INSTANCE_HOSTNAME=pessoas-api
+      - CLIENT_SERVICE-URL_DEFAULTZONE=http://eureka-server:9090/eureka/
+    networks:
+      - candidaturas-app
+  vagas-api:
+    build:
+      vagas-api/
+    image:
+      vagas-api:latest
+    ports:
+      - 9091:9091
+    environment:
+      - EUREKA_INSTANCE_HOSTNAME=vagas-api
+      - CLIENT_SERVICE-URL_DEFAULTZONE=http://eureka-server:9090/eureka/
+    networks:
+      - candidaturas-app
+networks:
+  candidaturas-app:
