@@ -1,5 +1,7 @@
 package com.teles.candidaturas.api.service;
 
+import com.teles.candidaturas.api.client.PessoasApiClient;
+import com.teles.candidaturas.api.client.VagasApiClient;
 import com.teles.candidaturas.api.domain.dto.CandidaturaRequest;
 import com.teles.candidaturas.api.domain.dto.CandidaturaResponse;
 import com.teles.candidaturas.api.domain.entity.Candidatura;
@@ -12,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Random;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -23,9 +24,13 @@ public class CandidaturaService {
 
     private final ModelMapper modelMapper;
 
-    public CandidaturaService(CandidaturaRepository candidaturaRepository, ModelMapper modelMapper) {
+    private final ScoreCalculator scoreCalculator;
+
+    public CandidaturaService(CandidaturaRepository candidaturaRepository, ModelMapper modelMapper,
+                              ScoreCalculator scoreCalculator) {
         this.candidaturaRepository = candidaturaRepository;
         this.modelMapper = modelMapper;
+        this.scoreCalculator = scoreCalculator;
     }
 
     @Transactional
@@ -34,8 +39,7 @@ public class CandidaturaService {
         Candidatura candidatura = new Candidatura();
         candidatura.setPessoaId(candidaturaRequest.getPessoaId());
         candidatura.setVagaId(candidaturaRequest.getVagaId());
-
-        candidatura.setScore(calculateScore(candidaturaRequest));
+        candidatura.setScore(scoreCalculator.calculateScore(candidaturaRequest));
 
         candidaturaRepository.save(candidatura);
     }
@@ -57,11 +61,6 @@ public class CandidaturaService {
         log.info("Searching Candidatura by vagaId: [{}] and pessoaId: [{}]", vagaId, pessoaId);
 
         return candidaturaRepository.findByVagaIdAndPessoaId(vagaId, pessoaId);
-    }
-
-    private Integer calculateScore(CandidaturaRequest candidatura) {
-        //TODO calcular score
-        return new Random().nextInt(100);
     }
 
     private CandidaturaResponse mapToCandidaturaResponse(Candidatura candidatura) {

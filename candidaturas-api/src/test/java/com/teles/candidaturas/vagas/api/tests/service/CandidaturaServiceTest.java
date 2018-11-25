@@ -4,7 +4,7 @@ import com.teles.candidaturas.api.domain.dto.CandidaturaResponse;
 import com.teles.candidaturas.api.domain.entity.Candidatura;
 import com.teles.candidaturas.api.repository.CandidaturaRepository;
 import com.teles.candidaturas.api.service.CandidaturaService;
-import org.assertj.core.api.Assertions;
+import com.teles.candidaturas.api.service.ScoreCalculator;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,12 +12,8 @@ import org.mockito.Mock;
 import org.modelmapper.ModelMapper;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.Collections;
-
 import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
-import static java.util.Optional.empty;
-import static java.util.Optional.of;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
@@ -30,11 +26,14 @@ public class CandidaturaServiceTest {
     @Mock
     private ModelMapper modelMapper;
 
+    @Mock
+    private ScoreCalculator scoreCalculator;
+
     private CandidaturaService service;
 
     @Before
     public void setup() {
-        this.service = new CandidaturaService(repository, modelMapper);
+        this.service = new CandidaturaService(repository, modelMapper, scoreCalculator);
     }
 
     @Test
