@@ -19,7 +19,7 @@
 #### Example below:
 <em>docker-compose pull && docker-compose up</em>
 
-## Used tools
+### Tools used
 * Kubuntu 18.04 (4.15.0-39-generic)
 * Apache Maven 3.6.0
 * Java 8 (HotSpot 1.8.0_191)
