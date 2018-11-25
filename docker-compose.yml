@@ -4,7 +4,7 @@ services:
     build:
       zuul-server/
     image:
-      zuul-server:latest
+      hltspires/zuul-server
     ports:
       - 9000:9000
     depends_on:
@@ -14,14 +14,14 @@ services:
       - pessoas-api
     environment:
       - EUREKA_INSTANCE_HOSTNAME=zuul-server
-      - CLIENT_SERVICE-URL_DEFAULTZONE=http://eureka-server:9090/eureka/
+      - EUREKA_DEFAULT_ZONE_URL=http://eureka-server:9090/eureka/
     networks:
       - candidaturas-app
   eureka-server:
     build:
       eureka-server/
     image:
-      eureka-server:latest
+      hltspires/eureka-server
     ports:
       - 9090:9090
     networks:
@@ -30,37 +30,37 @@ services:
     build:
       candidaturas-api/
     image:
-      candidaturas-api:latest
+      hltspires/candidaturas-api
     ports:
       - 9093:9093
     environment:
       - EUREKA_INSTANCE_HOSTNAME=candidaturas-api
-      - CLIENT_SERVICE-URL_DEFAULTZONE=http://eureka-server:9090/eureka/
+      - EUREKA_DEFAULT_ZONE_URL=http://eureka-server:9090/eureka/
     networks:
       - candidaturas-app
   pessoas-api:
     build:
       pessoas-api/
     image:
-      pessoas-api:latest
+      hltspires/pessoas-api
     ports:
       - 9092:9092
     environment:
       - EUREKA_INSTANCE_HOSTNAME=pessoas-api
-      - CLIENT_SERVICE-URL_DEFAULTZONE=http://eureka-server:9090/eureka/
+      - EUREKA_DEFAULT_ZONE_URL=http://eureka-server:9090/eureka/
     networks:
       - candidaturas-app
   vagas-api:
     build:
       vagas-api/
     image:
-      vagas-api:latest
+      hltspires/vagas-api
     ports:
       - 9091:9091
-    environment:
-      - EUREKA_INSTANCE_HOSTNAME=vagas-api
-      - CLIENT_SERVICE-URL_DEFAULTZONE=http://eureka-server:9090/eureka/
     networks:
       - candidaturas-app
+    environment:
+      - EUREKA_INSTANCE_HOSTNAME=vagas-api
+      - EUREKA_DEFAULT_ZONE_URL=http://eureka-server:9090/eureka/
 networks:
   candidaturas-app:
