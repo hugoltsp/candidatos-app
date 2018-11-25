@@ -96,5 +96,4 @@ public class ScoreCalculatorTest {
         assertThat(scoreCalculator.calculateScore(candidaturaRequest)).isEqualTo(0);
     }
 
-
 }

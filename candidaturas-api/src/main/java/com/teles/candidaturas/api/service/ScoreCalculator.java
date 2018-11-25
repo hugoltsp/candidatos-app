@@ -35,7 +35,13 @@ public class ScoreCalculator {
 
         VagaResponse vagaResponse = vagasApiClient.get(candidatura.getVagaId());
 
-        return (getLevelScore(vagaResponse, pessoaResponse) + getDistanceScore(vagaResponse, pessoaResponse)) / 2;
+        return calculate(getLevelScore(vagaResponse, pessoaResponse), getDistanceScore(vagaResponse, pessoaResponse));
+    }
+
+    private int calculate(int levelScore, int distanceScore) {
+        final int score = (levelScore + distanceScore) / 2;
+
+        return score > 100 ? 100 : score;
     }
 
     private int getDistanceScore(VagaResponse vagaResponse,
