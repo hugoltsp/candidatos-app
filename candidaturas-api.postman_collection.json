@@ -1,0 +1,180 @@
+{
+	"info": {
+		"_postman_id": "a1e5128b-4eed-40fa-967e-435fc51738fe",
+		"name": "candidaturas-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST Vagas",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"descricao\": \"string\",\n  \"empresa\": \"string\",\n  \"localizacao\": \"A\",\n  \"nivel\": 2,\n  \"titulo\": \"string\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9000/v1/vagas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"v1",
+						"vagas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Vagas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9000/v1/vagas/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"v1",
+						"vagas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Vagas Ranking",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9000/v1/vagas/1/candidaturas/ranking",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"v1",
+						"vagas",
+						"1",
+						"candidaturas",
+						"ranking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Pessoas",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"Carinha\",\n    \"profissao\": \"Desenvolvedor Java\",\n    \"localizacao\": \"B\",\n    \"nivel\": 5\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9000/v1/pessoas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"v1",
+						"pessoas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Pessoas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9000/v1/pessoas/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"v1",
+						"pessoas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Candidatura",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"pessoaId\": 1,\n  \"vagaId\": 1\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9000/v1/candidaturas/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"v1",
+						"candidaturas",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
