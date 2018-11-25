@@ -2,7 +2,7 @@
 
 # How to Run
 
-### Run `mvn install` in order to build the whole project along with it's dependencies and then execute the following to fire up all the needed applications:
+### Run `mvn install` in order to build the whole project along with it's dependencies and then execute the following to start all the needed applications:
 
 <em>java -jar eureka-server/target/eureka-server-0.0.1.jar</em>
 
@@ -18,6 +18,9 @@
 
 #### Example below:
 <em>docker-compose pull && docker-compose up</em>
+
+# Testing
+ Take a look at the `candidaturas-api.postman_collection.json` file, there you will find some request examples, you just need to import it on Postman
 
 ### Tools used
 * Kubuntu 18.04 (4.15.0-39-generic)
