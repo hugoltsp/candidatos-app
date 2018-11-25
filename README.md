@@ -1,12 +1,5 @@
 # candidaturas-app
 
-# Tools used
-* Kubuntu 18.04 (4.15.0-39-generic)
-* Apache Maven 3.6.0
-* Java 8 (HotSpot 1.8.0_191)
-* Docker version 18.06.1-ce
-* docker-compose version 1.22.0
-
 # How to Run
 
 ### Run `mvn install` in order to build the whole project along with it's dependencies and then execute the following to fire up all the needed applications:
@@ -25,3 +18,10 @@
 
 #### Example below:
 <em>docker-compose pull && docker-compose up</em>
+
+## Used tools
+* Kubuntu 18.04 (4.15.0-39-generic)
+* Apache Maven 3.6.0
+* Java 8 (HotSpot 1.8.0_191)
+* Docker version 18.06.1-ce
+* docker-compose version 1.22.0
